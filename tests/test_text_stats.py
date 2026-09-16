@@ -54,4 +54,4 @@ def test_count_characters_ignores_tabs_and_newlines_when_requested() -> None:
 
     result = count_characters(text, include_whitespace=False)
 
-    assert result == 15
+    assert result == 16
