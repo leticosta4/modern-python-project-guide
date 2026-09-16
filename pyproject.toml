@@ -2,7 +2,10 @@
 name = "text-toolkit"
 version = "0.1.0"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pytest-ranking>=0.3.4",
+    "pytest-regsmart @ git+https://github.com/leticosta4/pytest-regsmart.git@main",
+]
 
 [dependency-groups]
 dev = [
