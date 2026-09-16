@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  quality:
+    name: Quality checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v8.1.0
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync --locked --group dev
+
+      - name: Run Ruff linting
+        run: uv run ruff check .
+
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+      - name: Restore pytest-ranking cache
+        id: restore-pytest-ranking-cache
+        if: always()
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranking_data
+          key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}
+
+      - name: Run tests (pytest-ranking)
+        run: uv run pytest -v --rank
+
+      - name: Save pytest-ranking cache
+        id: save-pytest-ranking-cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranking_data
+          key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}-${{ github.run_id }}
