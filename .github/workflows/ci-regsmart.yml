@@ -1,9 +1,6 @@
 name: CI REGSMART
 
 on:
-  push:
-   branches-ignore:
-    - main
   pull_request:
 
 jobs:
