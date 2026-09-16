@@ -39,7 +39,7 @@ jobs:
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
       - name: Run tests (pytest-regsmart default)
-        run: uv run pytest -v --regsmart
+        run: uv run pytest -v --regsmart --ranking-weight=0-1
 
       - name: Save pytest-regsmart cache
         if: always()
