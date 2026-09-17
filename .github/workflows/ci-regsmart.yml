@@ -1,9 +1,6 @@
-name: CI
+name: CI REGSMART
 
 on:
-  push:
-   branches-ignore:
-    - main
   pull_request:
 
 jobs:
@@ -41,8 +38,8 @@ jobs:
           restore-keys: |
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
-      - name: Run tests (pytest-regsmart default)
-        run: uv run pytest -v --regsmart
+      - name: Run tests (pytest-regsmart order by recent fail)
+        run: uv run pytest -v --regsmart --ranking-weight=0-1
 
       - name: Save pytest-regsmart cache
         if: always()
