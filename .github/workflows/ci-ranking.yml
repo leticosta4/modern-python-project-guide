@@ -35,7 +35,7 @@ jobs:
           path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranking_data
           key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}
 
-      - name: Run tests (pytest-ranking)
+      - name: Run tests (pytest-ranking order by recent fail)
         run: uv run pytest -v --rank --rank-weight=0-1-0
 
       - name: Save pytest-ranking cache
