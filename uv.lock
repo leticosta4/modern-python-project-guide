@@ -263,7 +263,7 @@ wheels = [
 [[package]]
 name = "pytest-regsmart"
 version = "0.7.0"
-source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main#9889a4d738c271c41ccf8c4a3a6fcc1dd3099fd2" }
+source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=refactor%2Fskip-rtp-when-one-test-selected#20df7cab7b82da72330f0c7b799d2356f9fcf21d" }
 dependencies = [
     { name = "gitpython" },
     { name = "numpy" },
@@ -323,7 +323,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pytest-ranking", specifier = ">=0.3.4" },
-    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main" },
+    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=refactor%2Fskip-rtp-when-one-test-selected" },
 ]
 
 [package.metadata.requires-dev]
