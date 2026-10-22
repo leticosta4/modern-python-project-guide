@@ -263,7 +263,7 @@ wheels = [
 [[package]]
 name = "pytest-regsmart"
 version = "0.8.1"
-source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=f15d254252bcdb8fe0b34bb0fd8b4468f63cd0d2#f15d254252bcdb8fe0b34bb0fd8b4468f63cd0d2" }
+source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main#f15d254252bcdb8fe0b34bb0fd8b4468f63cd0d2" }
 dependencies = [
     { name = "gitpython" },
     { name = "numpy" },
@@ -323,7 +323,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "pytest-ranking", specifier = ">=0.3.4" },
-    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=f15d254252bcdb8fe0b34bb0fd8b4468f63cd0d2" },
+    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main" },
 ]
 
 [package.metadata.requires-dev]
